@@ -2,7 +2,9 @@
 
 
 
-Route::get('/', "HobbiesController@index");
+Route::get('/', function() {
+    return view('1_PreLogin.welcome');
+});
 
 Route::resource('hobbies', 'HobbiesController');
 
