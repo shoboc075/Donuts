@@ -9,3 +9,6 @@ class Hobby extends Model
 {
     //
 }
+
+
+?>
