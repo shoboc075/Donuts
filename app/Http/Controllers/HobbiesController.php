@@ -8,25 +8,22 @@ use App\Hobby;
 
 class HobbiesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        $hobbies = Hobby::all();
+        $data = [];
+        if (\Auth::check()) {
+            $user = \Auth::user();
+            $hobbies = $user->feed_hobbies()->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('2_AfterLogin.index', [
-            'hobbies' => $hobbies,
-        ]);
+            $data = [
+                'user' => $user,
+                'hobbies' => $hobbies,
+            ];
+        }
+        return view('1_PreLogin.welcome', $data);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
          $hobby = new Hobby;
