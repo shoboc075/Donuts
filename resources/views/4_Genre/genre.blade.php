@@ -1,7 +1,9 @@
-@extends('0_Layouts.app')
+extends('0_Layouts.app')
 
 @section('content')
 
 
-    
+
+
+   
 @endsection
