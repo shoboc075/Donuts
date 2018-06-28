@@ -7,13 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 //DBのhobbiesテーブルから
 class Hobby extends Model
 {
-    protected $fillable = ['content', 'user_id'];
+    protected $fillable = ['content', 'genre_id'];
     
-    public function hobby()
-    {
-        return $this->belongsTo(User::class);
-    }
+    public function beingHavedHobbies()
+    { return $this->belongsToMany(User::class, 'user_hobby', 'user_id', 'hobby_id')->withTimestamps(); }
+    
+    //前提
+    
+    
+    
+    
+    
 }
-
-
 ?>

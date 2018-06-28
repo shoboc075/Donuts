@@ -1,0 +1,1 @@
+link_to_routeで個人情報を編集(edit_button)

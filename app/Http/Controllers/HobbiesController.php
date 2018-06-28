@@ -14,12 +14,8 @@ class HobbiesController extends Controller
         $data = [];
         if (\Auth::check()) {
             $user = \Auth::user();
-            $hobbies = $user->feed_hobbies()->orderBy('created_at', 'desc')->paginate(10);
 
-            $data = [
-                'user' => $user,
-                'hobbies' => $hobbies,
-            ];
+            $data = ['user' => $user];
         }
         return view('1_PreLogin.welcome', $data);
     }
@@ -58,7 +54,7 @@ class HobbiesController extends Controller
     {
          $hobby = Hobby::find($id);
 
-        return view('2_AfterLogin.show', [
+        return view('4_Genre.show', [
             'hobby' => $hobby,
         ]);
     }

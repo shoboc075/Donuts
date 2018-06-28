@@ -6,9 +6,7 @@
             <aside class="col-md-4">
             </aside>
             <div class="col-xs-8">
-                @if (count($hobbies) > 0)
-                    @include('2_AfterLogin.index', ['hobbies' => $hobbies])
-                @endif
+                @include('2_AfterLogin.index')
             </div>
         </div>
     
