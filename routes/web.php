@@ -1,7 +1,7 @@
 <?php
 
 //Login前
-Route::get('/', 'HobbiesController@index');
+Route::get('/', 'GenreController@index');
 
 //Login Root
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -16,7 +16,7 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
     Route::resource('hobbies', 'HobbiesController');
-
+    Route::resource('hobbies/{id}', 'HobbiesController');
     
     //Genre詳細に飛ばすページ
     Route::get('genre', 'GenreController@index')->name('genre.get');
