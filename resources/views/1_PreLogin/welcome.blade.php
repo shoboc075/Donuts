@@ -1,6 +1,8 @@
 @extends('0_Layouts.app')
 
 @section('content')
+<main>
+<link rel="stylesheet" href="css/top.css">
      @if (Auth::check())
         <div class="row">
             <aside class="col-md-4">
@@ -11,13 +13,20 @@
         </div>
     
      @else
-        <div class="center jumbotron">
+       
             <div class="text-center">
-                <h1>Welcome to the Donuts</h1>
-                {!! link_to_route('signup.get', 'Sign up now!', null, ['class' => 'btn btn-lg btn-primary']) !!}
+                <h1>Donuts</h1>
+                <img src="img/sweets_french_cruller.png">
+                
+                
+                <div>
+                {!! link_to_route('login', 'Login?', null, ['class' => 'btn btn-lg btn-warning']) !!}
+                {!! link_to_route('signup.get', 'sign up?', null, ['class' => 'btn btn-lg btn-primary']) !!}
+                </div>
             </div>
         </div>
     @endif
+</main>
 @endsection
 
 

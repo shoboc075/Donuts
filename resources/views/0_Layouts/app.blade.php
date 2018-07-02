@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        @include('0_Layouts.navbar')
+        @include('0_Layouts.navibar')
         
         <div class="container">
             @include('0_Layouts.error_messages')
