@@ -1,6 +1,6 @@
 <?php
 
-//Login前
+//Pre Login
 Route::get('/', 'GenreController@index');
 
 //Login Root
@@ -14,12 +14,12 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 
 //ログインできた際のRooting
 Route::group(['middleware' => ['auth']], function () {
+    //
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
-    Route::resource('hobbies', 'HobbiesController');
-    Route::resource('hobbies/{id}', 'HobbiesController');
+    Route::get('hobbies', 'HobbiesController@show')->name('4_Genre.genre');
     
-    //Genre詳細に飛ばすページ
-    Route::get('genre', 'GenreController@index')->name('genre.get');
+    
+    
     
 })
 

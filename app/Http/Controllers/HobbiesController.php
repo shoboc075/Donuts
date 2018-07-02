@@ -9,62 +9,21 @@ use App\Hobby;
 class HobbiesController extends Controller
 {
     
-    public function index()
+    public function index($genre, $title)
     {
-        $data = [];
-        if (\Auth::check()) {
-            $user = \Auth::user();
-
-            $data = ['user' => $user];
-        }
-        return view('1_PreLogin.welcome', $data);
+        
     }
     
-    public function create()
+    
+    
+    public function show($genre, $title)
     {
-         $hobby = new Hobby;
-
-        return view('2_AfterLogin.create', [
-            'hobby' => $hobby,
-        ]);
+        
+        
+        return view('4_Genre.genre', $genre, $title, $hobbies);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $hobby = new Hobby;
-        $hobby->content = $request->content;
-        $hobby->save();
-
-        return redirect('/');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-         $hobby = Hobby::find($id);
-
-        return view('4_Genre.show', [
-            'hobby' => $hobby,
-        ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit($id)
     {
         $hobby = Hobby::find($id);
@@ -74,33 +33,6 @@ class HobbiesController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $hobby = Hobby::find($id);
-        $hobby->content = $request->content;
-        $hobby->save();
-
-        return redirect('/');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $hobby = Hobby::find($id);
-        $hobby->delete();
-
-        return redirect('/');
-    }
+    
+    
 }

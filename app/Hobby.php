@@ -12,9 +12,7 @@ class Hobby extends Model
     public function beingHavedHobbies()
     { return $this->belongsToMany(User::class, 'user_hobby', 'user_id', 'hobby_id')->withTimestamps(); }
     
-    //前提
-    
-    
+   
     
     
     
